@@ -1,0 +1,19 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="space-around start"
+  *ngIf="getHolidayInfo?.length > 0"
+>
+  <mat-card
+    *ngFor="let item of getHolidayInfo"
+    [ngClass]="
+      item.startDate < getCurrentDate() ? 'post_holidays' : 'holidays_card'
+    "
+  >
+    <h1>{{ item.startDate | date : "dd MMMM" }}</h1>
+    <ul *ngFor="let person of item.name; let i = index">
+      <li *ngIf="person.language">
+        <p>{{person.language }}-{{ person.text }} </p>
+      </li>
+    </ul>
+  </mat-card>
+</div>
