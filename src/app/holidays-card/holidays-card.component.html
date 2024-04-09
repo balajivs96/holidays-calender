@@ -11,9 +11,10 @@
   >
     <h1>{{ item.startDate | date : "dd MMMM" }}</h1>
     <ul *ngFor="let person of item.name; let i = index">
-      <li *ngIf="person.language">
-        <p>{{person.language }}-{{ person.text }} </p>
+      <li *ngIf="person.language === selectedCountryCode">
+        <p>{{ person.text }}</p>
       </li>
     </ul>
+    <p>NationWide Holiday : {{ (item.nationwide)?'YES':'NO'}}</p>
   </mat-card>
 </div>

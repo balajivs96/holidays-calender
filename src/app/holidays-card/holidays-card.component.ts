@@ -14,7 +14,7 @@ export class HolidaysCardComponent {
   selectedCountryCode: any;
   constructor(private api: ApiService) {
     this.api.getCountryCode().subscribe((res) => {
-      console.log(res);
+      this.selectedCountryCode = res;
     });
   }
   getCurrentDate() {

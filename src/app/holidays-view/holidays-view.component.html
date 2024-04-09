@@ -20,7 +20,7 @@
           <mat-error
             *ngIf="countryCode.errors?.['required'] && (countryCode.dirty || countryCode.touched)"
           >
-            Please Enter countryCode
+            Please Enter CountryCode
           </mat-error>
         </mat-form-field>
       </div>
@@ -45,7 +45,7 @@
           <mat-error
             *ngIf="startDate.errors?.['required'] && (startDate.dirty || startDate.touched)"
           >
-            Please Enter startDate
+            Please Enter Start Date
           </mat-error>
         </mat-form-field>
       </div>
@@ -70,12 +70,12 @@
           <mat-error
             *ngIf="endDate.errors?.['endDateInvalid'] && (endDate.dirty || endDate.touched)"
           >
-            End date must be after start date.
+            End date must be greater then Start Date.
           </mat-error>
           <mat-error
             *ngIf="endDate.errors?.['required'] && (endDate.dirty || endDate.touched)"
           >
-            Please Enter EndDate
+            Please Enter End Date
           </mat-error>
         </mat-form-field>
         <div>
@@ -97,15 +97,16 @@
     *ngIf="getHolidayInfo?.length < 1"
     (opened)="panelOpenState = true"
     (closed)="panelOpenState = false"
+    style="margin: 20px 50px; width: 50%"
   >
     <mat-expansion-panel-header>
       <mat-panel-title>
         Selected Country : {{ holidays.countryCode }}
       </mat-panel-title>
-      <mat-panel-description>
+      <!-- <mat-panel-description>
         Invalid CountryCode : {{ holidays.countryCode }}
-      </mat-panel-description>
+      </mat-panel-description> -->
     </mat-expansion-panel-header>
-    <p>Plese Enter valid CountryCode to display the holiday list</p>
+    <p>Plese Enter valid Input to display the holiday list</p>
   </mat-expansion-panel>
   
