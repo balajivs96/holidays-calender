@@ -4,17 +4,25 @@
   *ngIf="getHolidayInfo?.length > 0"
 >
   <mat-card
-    *ngFor="let item of getHolidayInfo"
+    *ngFor="let item of getHolidayInfo; index as i"
     [ngClass]="
       item.startDate < getCurrentDate() ? 'post_holidays' : 'holidays_card'
     "
   >
     <h1>{{ item.startDate | date : "dd MMMM" }}</h1>
     <ul *ngFor="let person of item.name; let i = index">
-      <li *ngIf="person.language === selectedCountryCode">
+      <li *ngIf="person.language === selectedCountryCode;else diffrentCountryCode">
         <p>{{ person.text }}</p>
       </li>
+      <ng-template #diffrentCountryCode><p>{{ person.text }}</p></ng-template>
     </ul>
-    <p>NationWide Holiday : {{ (item.nationwide)?'YES':'NO'}}</p>
+    <mat-slide-toggle
+      color="primary"
+      [(ngModel)]="toggleHideShow[i] !== toggleHideShow[i]"
+      >NationWide:Hide/Show</mat-slide-toggle
+    >
+    <h3 *ngIf="toggleHideShow[i]">
+      NationWide Holiday : {{ item.nationwide ? "YES" : "NO" }}
+    </h3>
   </mat-card>
 </div>

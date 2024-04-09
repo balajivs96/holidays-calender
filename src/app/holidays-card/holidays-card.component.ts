@@ -17,6 +17,7 @@ export class HolidaysCardComponent {
       this.selectedCountryCode = res;
     });
   }
+  toggleHideShow:any={};
   getCurrentDate() {
     return formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
   }
